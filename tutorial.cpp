@@ -23,12 +23,12 @@ public:
 
         // emplace info table
 
-        msg_table msgs(get_self(), get_self().value)
+        msg_table msgs(get_self(), get_self().value);
 
             msgs.emplace(get_self(), [&](auto &row)
                          { row.ID = msgs.available_primary_key();
                          
-                         row.message = message; })
+                         row.message = message; });
     } // end addMessage
 
     // END OF PUBLIC
@@ -45,4 +45,4 @@ private:
     using msg_table = eosio::multi_index<"messages"_n, messages>;
 
     // END OF PRIVATE
-}
+};
